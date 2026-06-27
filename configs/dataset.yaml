@@ -1,0 +1,10 @@
+source: huggingface
+name: ms_marco
+config_name: v1.1
+split: train
+text_column: passage
+query_column: query
+id_column: null
+sample_size: null
+cache: true
+cache_dir: data/cache

@@ -1,0 +1,16 @@
+# Устанавливает основные зависимости проекта
+-e .
+
+# Форматирование
+black
+isort
+ruff
+
+# Тестирование
+pytest
+
+# Jupyter
+jupyter
+notebook
+ipykernel
+ipywidgets

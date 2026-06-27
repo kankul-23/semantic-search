@@ -1,0 +1,15 @@
+# --------------------------------------------------
+# Logging configuration
+# --------------------------------------------------
+
+level: INFO
+
+format: "{time} | {level} | {name} | {message}"
+
+save_logs: true
+log_file: logs/app.log
+
+rotation: "10 MB"
+retention: "7 days"
+
+compression: zip

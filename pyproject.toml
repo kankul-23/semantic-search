@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-search"
+version = "0.1.0"
+description = "Semantic search using Sentence Transformers and Hugging Face"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    # Machine Learning
+    "torch>=2.3,<2.6",
+    "transformers==4.41.2",
+    "sentence-transformers==2.7.0",
+    "datasets==2.19.1",
+    "evaluate>=0.4.0",
+    "huggingface-hub==0.23.5",
+
+    # Data
+    "numpy>=1.26,<2.0",
+    "pandas>=2.2,<3.0",
+    "pyarrow==16.1.0",
+    "fsspec==2024.3.1",
+    "scikit-learn>=1.4",
+
+    # Utilities
+    "loguru>=0.7",
+    "pydantic>=2.8",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ruff",
+    "isort",
+    "pytest",
+    "jupyter",
+    "notebook",
+    "ipykernel",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"

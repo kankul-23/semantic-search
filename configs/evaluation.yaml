@@ -1,0 +1,29 @@
+# --------------------------------------------------
+# Evaluation settings (IR metrics)
+# --------------------------------------------------
+
+top_k: [1, 5, 10, 20, 50]
+
+metrics:
+  - recall
+  - mrr
+  - ndcg
+
+# --------------------------------------------------
+# Ground truth settings
+# --------------------------------------------------
+
+relevance_threshold: 1
+
+# --------------------------------------------------
+# Whether to normalize scores before metrics
+# --------------------------------------------------
+
+normalize_scores: true
+
+# --------------------------------------------------
+# Save evaluation results
+# --------------------------------------------------
+
+save_results: true
+results_path: experiments/results
