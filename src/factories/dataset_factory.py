@@ -6,7 +6,6 @@ from src.datasets.parquet_loader import ParquetLoader
 class DatasetFactory:
 
     LOADERS = {
-        "hf": HFLoader,
         "huggingface": HFLoader,
         "csv": CSVLoader,
         "parquet": ParquetLoader,
