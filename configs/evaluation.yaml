@@ -1,29 +1,19 @@
 # --------------------------------------------------
-# Evaluation settings (IR metrics)
+# Evaluation Metrics Configuration
 # --------------------------------------------------
 
-top_k: [1, 5, 10, 20, 50]
+# Размеры поисковой выдачи, для которых рассчитывается Recall@K
+top_k: [1, 3, 5, 10]
 
+# Список метрик, которые будут рассчитываться в системе
 metrics:
   - recall
   - mrr
-  - ndcg
 
-# --------------------------------------------------
-# Ground truth settings
-# --------------------------------------------------
-
+# Дополнительные параметры для будущих экспериментов
 relevance_threshold: 1
+normalize_scores: false
 
-# --------------------------------------------------
-# Whether to normalize scores before metrics
-# --------------------------------------------------
-
-normalize_scores: true
-
-# --------------------------------------------------
-# Save evaluation results
-# --------------------------------------------------
-
+# Настройки сохранения результатов оценки
 save_results: true
-results_path: experiments/results
+results_path: "experiments/results"
