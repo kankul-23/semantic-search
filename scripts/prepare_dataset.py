@@ -9,7 +9,7 @@ from src.core.document import Document
 
 root = Path(__file__).resolve().parent.parent
 config = Config(root)
-
+cd
 # 1. Загрузка данных
 loader = DatasetFactory.create(config.dataset)
 dataset = loader.load()

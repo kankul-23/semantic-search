@@ -35,6 +35,7 @@ class DatasetConfig:
 
 @dataclass
 class ModelConfig:
+    # Текущие поля для Dense
     model_name: str
     device: str
     batch_size: int
@@ -42,6 +43,19 @@ class ModelConfig:
     show_progress_bar: bool
     save_embeddings: bool
     embeddings_path: str
+
+    # Новые поля для TF-IDF (с дефолтными значениями)
+    sparse_lowercase: bool = True
+    sparse_max_features: int = 50000
+    sparse_min_df: int = 2
+    sparse_ngram_range: list = r"[(1, 1)]"  # Будет [1, 1] по умолчанию
+    sparse_model_path: str = "models/sparse"
+    sparse_index_path: str = "indexes/tfidf"
+
+    # преобразование списка из yaml в кортеж для sklearn
+    def __post_init__(self):
+        if isinstance(self.sparse_ngram_range, list):
+            self.sparse_ngram_range = tuple(self.sparse_ngram_range)
 
 
 # ---------------- Evaluation ----------------

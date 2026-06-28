@@ -1,29 +1,16 @@
-# --------------------------------------------------
-# Embedding model
-# --------------------------------------------------
-
+# --- Общие настройки плотных эмбеддингов (Dense) ---
 model_name: sentence-transformers/all-MiniLM-L6-v2
-
-# --------------------------------------------------
-# Device
-# --------------------------------------------------
-
 device: cuda
-
-# --------------------------------------------------
-# Embedding generation
-# --------------------------------------------------
-
 batch_size: 128
-
 normalize_embeddings: true
-
 show_progress_bar: true
-
-# --------------------------------------------------
-# Saving
-# --------------------------------------------------
-
 save_embeddings: true
-
 embeddings_path: indexes/embeddings
+
+# --- Настройки разреженного индекса (TF-IDF Baseline) ---
+sparse_lowercase: true
+sparse_max_features: 50000
+sparse_min_df: 2
+sparse_ngram_range: [1, 1]
+sparse_model_path: models/sparse
+sparse_index_path: indexes/tfidf
