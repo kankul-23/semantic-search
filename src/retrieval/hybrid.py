@@ -4,6 +4,7 @@ from src.config.config import Config
 from src.retrieval.tfidf import TFIDFRetriever
 from src.indexing.faiss_index import FaissIndex
 from src.embeddings.sentence_transformer import JointSentenceTransformer
+from src.retrieval.base import BaseRetriever
 import numpy as np
 
 
@@ -14,20 +15,14 @@ class HybridRetriever:
     """
 
     def __init__(self, config: Config):
+        super().__init__()  # Инициализируем родительский класс, если это необходимо
         self.config = config
 
-        # 1. Инициализируем лексический ретривер
+        # Оставляем без изменений весь остальной код __init__...
         self.tfidf_retriever = TFIDFRetriever(config)
-
-        # 2. Инициализируем семантический ретривер (модель + FAISS индекс)
         self.dense_model = JointSentenceTransformer(config=config.model)
-        self.faiss_index = FaissIndex(
-            dimension=1024,
-            index_type=config.model.faiss_index_type
-        )
+        self.faiss_index = FaissIndex(dimension=1024, index_type=config.model.faiss_index_type)
         self.faiss_index.load(config.model.faiss_index_path)
-
-        # Параметры RRF (можно захардкодить дефолты, если нет в конфиге)
         self.rrf_k = getattr(config.model, "rrf_k", 60)
         self.depth_k = getattr(config.model, "hybrid_depth_k", 100)
 
