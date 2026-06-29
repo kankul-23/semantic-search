@@ -5,7 +5,7 @@ batch_size: 32 # Уменьшили со 128 до 32, так как модель
 normalize_embeddings: true
 show_progress_bar: true
 save_embeddings: true
-embeddings_path: indexes/embeddings
+embeddings_path: "indexes/embeddings/dense_embeddings.npy"
 
 # --- Настройки разреженного индекса (TF-IDF Baseline) ---
 sparse_lowercase: true

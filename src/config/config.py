@@ -31,11 +31,12 @@ class DatasetConfig:
     cache: bool = True
     cache_dir: str = "data/cache"
 
+
 # ---------------- Model ----------------
 
 @dataclass
 class ModelConfig:
-    # Текущие поля для Dense
+    # поля для Dense
     model_name: str
     device: str
     batch_size: int
@@ -44,13 +45,17 @@ class ModelConfig:
     save_embeddings: bool
     embeddings_path: str
 
-    # Новые поля для TF-IDF (с дефолтными значениями)
+    # поля для TF-IDF
     sparse_lowercase: bool = True
     sparse_max_features: int = 50000
     sparse_min_df: int = 2
-    sparse_ngram_range: list = r"[(1, 1)]"  # Будет [1, 1] по умолчанию
+    sparse_ngram_range: list = r"[(1, 1)]"
     sparse_model_path: str = "models/sparse"
     sparse_index_path: str = "indexes/tfidf"
+
+    # поля для FAISS (с дефолтными значениями) ---
+    faiss_index_type: str = "flat_ip"
+    faiss_index_path: str = "indexes/faiss/faiss_index.bin"
 
     # преобразование списка из yaml в кортеж для sklearn
     def __post_init__(self):
