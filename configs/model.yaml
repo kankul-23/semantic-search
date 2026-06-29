@@ -14,3 +14,7 @@ sparse_min_df: 2
 sparse_ngram_range: [1, 1]
 sparse_model_path: models/sparse
 sparse_index_path: indexes/tfidf
+
+# Параметры для Гибридного поиска (Hybrid Search & RRF)
+rrf_k: 60
+hybrid_depth_k: 100

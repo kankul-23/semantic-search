@@ -15,8 +15,7 @@ def main():
     print(" Инициализация конфигурации и загрузка моделей...")
     config = Config(root=".")
 
-    # 1. Импортируем твой правильный класс
-    from src.embeddings.sentence_transformer import JointSentenceTransformer
+    # 1. Импортируем класс
     model = JointSentenceTransformer(config=config.model)
 
     # 2. Инициализируем и загружаем собранный FAISS индекс

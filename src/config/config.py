@@ -53,9 +53,13 @@ class ModelConfig:
     sparse_model_path: str = "models/sparse"
     sparse_index_path: str = "indexes/tfidf"
 
-    # поля для FAISS (с дефолтными значениями) ---
+    # поля для FAISS
     faiss_index_type: str = "flat_ip"
     faiss_index_path: str = "indexes/faiss/faiss_index.bin"
+
+    # поля для Гибридного поиска (RRF) ─── NEW ───
+    rrf_k: int = 60
+    hybrid_depth_k: int = 100
 
     # преобразование списка из yaml в кортеж для sklearn
     def __post_init__(self):
