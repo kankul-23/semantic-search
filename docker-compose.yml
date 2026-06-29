@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  search-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: semantic_search_cpu
+    ports:
+      - "0.0.0.0:8000:8000" # Явно привязываем ко всем интерфейсам Windows
+    volumes:
+      # Профессиональный изолированный кэш моделей
+      - chariot-hf-cache:/root/.cache/huggingface
+      # Пробрасываем данные, чтобы код видел documents.jsonl и индексы FAISS
+      - ./data:/app/data
+      - ./indexes:/app/indexes
+    environment:
+      - DEVICE=cpu
+    restart: always
+
+volumes:
+  chariot-hf-cache:
